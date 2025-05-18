@@ -10,8 +10,10 @@ tasks:
       complete -C "/usr/local/bin/aws_completer" aws
       touch videomark.txt
       touch awskeys.txt
-      echo "export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)" >> awskeys.txt
-      echo "export EMAIL_ID=olaleyeolawale2020@outlook.com" >> awskeys.txt
+      cat <<EOF > awskeys.txt
+      export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+      export EMAIL_ID=olaleyeolawale2020@outlook.com
+      EOF
       cd $THEIA_WORKSPACE_ROOT
 
 vscode:
